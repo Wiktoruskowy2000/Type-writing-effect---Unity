@@ -1,0 +1,1 @@
+This is a script uploaded to an object with the TMP_Text component. The text is displayed when the object becomes visible.
