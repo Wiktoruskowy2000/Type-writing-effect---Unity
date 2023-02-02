@@ -11,14 +11,14 @@ public class TextWriting : MonoBehaviour
     private string FrontChar = "";
     private bool CharBeforeDelay = false;
 
-    private TMP_Text TMPText;
-    private string _text;
+    private TMP_Text TMPText; // thisGameObject
+    private string _text;       //temporary string with thisGameObject text
 
     private void OnEnable()
     {
         TMPText = GetComponent<TMP_Text>();
-        _text = TMPText.text;
-        TMPText.text = "";
+        _text = TMPText.text;               //send default text to temp (_text)
+        TMPText.text = "";                  //set thisGameObject text to null
         StartCoroutine(TypeWriterTMP());
     }
 
@@ -46,3 +46,5 @@ public class TextWriting : MonoBehaviour
         }
     }
 }
+
+//Type writing ~By Proxima
