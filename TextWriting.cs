@@ -5,43 +5,45 @@ using TMPro;
 
 public class TextWriting : MonoBehaviour
 {
-    [SerializeField] float delayBeforeStart = 0f;
-    [SerializeField] float timeBtwChars = 0.1f;
-    [SerializeField] string leadingChar = "";
-    [SerializeField] bool leadingCharBeforeDelay = false;
+    public float StartDelay = 0f;
+    public float TypeSpeed = 0.1f;
 
-    private TMP_Text _tmpProText;
+
+    private string FrontChar = "";
+    private bool CharBeforeDelay = false;
+
+    private TMP_Text TMPText;
     private string _text;
 
     private void OnEnable()
     {
-        _tmpProText = GetComponent<TMP_Text>();
-        _text = _tmpProText.text;
-        _tmpProText.text = "";
+        TMPText = GetComponent<TMP_Text>();
+        _text = TMPText.text;
+        TMPText.text = "";
         StartCoroutine(TypeWriterTMP());
     }
 
 
     IEnumerator TypeWriterTMP()
     {
-        _tmpProText.text = leadingCharBeforeDelay ? leadingChar : "";
+        TMPText.text = CharBeforeDelay ? FrontChar : "";
 
-        yield return new WaitForSeconds(delayBeforeStart);
+        yield return new WaitForSeconds(StartDelay);
 
-        foreach (char c in _text)
+        foreach (char _char in _text)
         {
-            if (_tmpProText.text.Length > 0)
+            if (TMPText.text.Length > 0)
             {
-                _tmpProText.text = _tmpProText.text.Substring(0, _tmpProText.text.Length - leadingChar.Length);
+                TMPText.text = TMPText.text.Substring(0, TMPText.text.Length - FrontChar.Length);
             }
-            _tmpProText.text += c;
-            _tmpProText.text += leadingChar;
-            yield return new WaitForSeconds(timeBtwChars);
+            TMPText.text += _char;
+            TMPText.text += FrontChar;
+            yield return new WaitForSeconds(TypeSpeed);
         }
 
-        if (leadingChar != "")
+        if (FrontChar != "")
         {
-            _tmpProText.text = _tmpProText.text.Substring(0, _tmpProText.text.Length - leadingChar.Length);
+            TMPText.text = TMPText.text.Substring(0, TMPText.text.Length - FrontChar.Length);
         }
     }
 }
