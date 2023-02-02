@@ -1,7 +1,3 @@
-This script is intended for creating a typewriter effect in the Unity user interface.
-The script uses the "System.Collections", "UnityEngine" and "TMPro" libraries. 
-The script works on an object with the "TMP_Text" component.
-*
-*
-*
-This is a script uploaded to an object with the TMP_Text component. The text is displayed when the object becomes visible.
+"This script is designed to create a realistic typing effect in the Unity user interface.
+ It leverages the libraries of "System.Collections", "UnityEngine", and "TMPro". 
+Simply attach the script to an object with the TMP_Text component, and the text will start to display when its activeSelf status is set to true.
