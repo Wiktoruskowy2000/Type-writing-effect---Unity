@@ -8,7 +8,6 @@ public class TextWriting : MonoBehaviour
     public float StartDelay = 0f;
     public float TypeSpeed = 0.1f;
 
-
     private string FrontChar = "";
     private bool CharBeforeDelay = false;
 
